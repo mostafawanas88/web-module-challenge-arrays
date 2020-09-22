@@ -290,7 +290,16 @@ var regionalFlavors = ["Pink Bubblegum",
     "Caramel 'n' Cookies"]
 
 function getRandomFlavors(/*code here*/){
-
+// new empty array
+// while the length of this new empty array is less than 31
+// push into this new array elements
+// these elements should come from other array through randomly generating an index number that gets passed into the iteration
+// this index number should not exceed the total number of elements in (.length)
+// the selection of which array should also be random 
+// we create a new array that holds the arguments
+// create a random math function that selects one of these arrays
+// given that these are nested arrays then you implement another math.random to select which element
+// this selection to get pushed into the array; 
     /*code here*/
 
 }
