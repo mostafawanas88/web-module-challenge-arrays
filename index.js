@@ -137,12 +137,14 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(newArr,arr){
+const copy = (newArr,arr) => {
 
     newArr = [...arr];
     return newArr;
-
 }
+
+let cloneArray = copy([],arr);
+console.log(cloneArray);
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
 
@@ -173,7 +175,8 @@ function filterByWord(arr,str){
     
     }
     
-    filterByWord(originalFlavors,'Chocolate');
+    const chocolateArray = filterByWord(originalFlavors,'Chocolate');
+    console.log(chocolateArray);
 
 
 
@@ -199,7 +202,7 @@ function getAverageWordLength(arr) {
     let result = 0;
     let arrLength = arr.length;
     for (let i = 0; i < arr.length; i++) {
-      result = result + arr[i].includes(' ') + 1;
+      result += arr[i].includes(' ') + 1;
     }
     let average = result / arrLength;
     return average;
@@ -289,7 +292,7 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
+function getRandomFlavors(arr1,arr2,arr3,arr4){
 // new empty array
 // while the length of this new empty array is less than 31
 // push into this new array elements
@@ -301,5 +304,21 @@ function getRandomFlavors(/*code here*/){
 // given that these are nested arrays then you implement another math.random to select which element
 // this selection to get pushed into the array; 
     /*code here*/
-
+    // create empty array
+    let randomFlavors = [];
+    // insert 4 arrays inside one array
+    let arrOfFlavors = [arr1,arr2,arr3,arr4]
+    // while empty array.length is less than 31
+    while (randomFlavors.length < 31) {
+        // formula to randomly select one of the arrays
+        let randomNestedArray = arrOfFlavors[Math.floor(Math.random() * 4)];
+        let randomFlavor = randomNestedArray[Math.floor(Math.random() * randomNestedArray.length)];
+        randomFlavors.push(randomFlavor);
+    }
+    return randomFlavors;
+    // math.random to select one of the nested arrays
+    // another math.random (bound by the length of the nested array to select element)
+    // push that element into the random array
 }
+
+const randomFlavors = getRandomFlavors(originalFlavors,newFlavors,seasonalFlavors,regionalFlavors);
